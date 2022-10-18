@@ -1,0 +1,21 @@
+Source: ruby-daemons
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Lucas Nussbaum <lucas@debian.org>, Paul van Tilburg <paulvt@debian.org>
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.3.0~)
+Standards-Version: 3.9.6
+Vcs-Git: git://anonscm.debian.org/pkg-ruby-extras/ruby-daemons.git
+Vcs-Browser: http://anonscm.debian.org/gitweb?p=pkg-ruby-extras/ruby-daemons.git;a=summary
+Homepage: https://rubygems.org/gems/daemons
+XS-Ruby-Versions: all
+
+Package: ruby-daemons
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Description: Ruby daemons library
+ Daemons provides an easy way to wrap existing ruby scripts (for example
+ a self-written server) to be run as a daemon and to be controlled by
+ simple start/stop/restart commands. daemons can also run and control
+ blocks of Ruby code in a daemon process.

@@ -1,0 +1,21 @@
+Author: Jonas Genannt <jonas.genannt@capi2name.de>
+Description: this code was added in 1.1.9 but is not compatible with MRI > 1.8.
+             MRI > 1.8 uses an separate thread to handle signals, which starts
+             on VM initialization
+
+--- a/lib/daemons/daemonize.rb
++++ b/lib/daemons/daemonize.rb
+@@ -132,13 +132,6 @@
+       end
+     end
+     
+-    # Make sure all input/output streams are closed
+-    # Part II: close all file decriptors (except for STDIN/STDOUT/STDERR)
+-    ios = Array.new(8192) {|i| IO.for_fd(i) rescue nil}.compact
+-    ios.each do |io|
+-      next if io.fileno < 3
+-      io.close
+-    end
+   end
+   module_function :close_io
+   
